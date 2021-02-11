@@ -53,7 +53,7 @@ function preload ()
         'assets/roblox.mp3'
     ]);
     this.load.audio('bgTrack', [
-        'assets/bgTrack.mp3'
+        'assets/BgTrack.mp3'
     ]);
     this.load.audio('levelup', [
         'assets/levelup.mp3'
@@ -62,9 +62,9 @@ function preload ()
 
 function create ()
 {
-    //music = this.sound.add('bgTrack',{volume:0.69});
-    //music.loop = true;
-    //music.play();
+    music = this.sound.add('bgTrack',{volume:0.69});
+    music.loop = true;
+    music.play();
 
     oofSound = this.sound.add('oof',{volume:0.69});
     levelUp = this.sound.add('levelup',{volume:0.69});
