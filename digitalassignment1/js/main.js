@@ -62,9 +62,9 @@ function preload ()
 
 function create ()
 {
-    music = this.sound.add('bgTrack',{volume:0.69});
-    music.loop = true;
-    music.play();
+    //music = this.sound.add('bgTrack',{volume:0.69});
+    //music.loop = true;
+    //music.play();
 
     oofSound = this.sound.add('oof',{volume:0.69});
     levelUp = this.sound.add('levelup',{volume:0.69});
