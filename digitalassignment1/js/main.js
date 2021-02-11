@@ -39,24 +39,35 @@ var gameOver = false;
 var scoreText;
 var endText; 
 var livesText;
-
-
+var music;
+var oofSound;
 var game = new Phaser.Game(config);
-
+var levelUp;
 function preload ()
 {
     this.load.image('ground', 'assets/platform.png');
     this.load.image('star', 'assets/star.png');
     this.load.image('bomb', 'assets/poison.png');
     this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
-    //this.load.audio('oof','assests/roblox.mp3');
+    this.load.audio('oof', [
+        'assets/roblox.mp3'
+    ]);
+    this.load.audio('bgTrack', [
+        'assets/bgTrack.mp3'
+    ]);
+    this.load.audio('levelup', [
+        'assets/levelup.mp3'
+    ]);
 }
 
 function create ()
 {
-    
-    //  A simple background for our game
-    //this.add.image(400, 300, 'bg');
+    music = this.sound.add('bgTrack',{volume:0.69});
+    music.loop = true;
+    music.play();
+
+    oofSound = this.sound.add('oof',{volume:0.69});
+    levelUp = this.sound.add('levelup',{volume:0.69});
     //  The platforms group contains the ground and the 2 ledges we can jump on
     platforms = this.physics.add.staticGroup();
 
@@ -66,7 +77,7 @@ function create ()
 
     //  Now let's create some ledges
     platforms.create(570, 369, 'ground').setScale(.4).refreshBody();
-    platforms.create(50, 240, 'ground').setScale(.4).refreshBody();
+    platforms.create(50, 220, 'ground').setScale(.4).refreshBody();
     platforms.create(800, 220, 'ground').setScale(.4).refreshBody();
     platforms.create(420, 200, 'ground').setScale(.4).refreshBody();
     platforms.create(180, 400, 'ground').setScale(.4).refreshBody();
@@ -78,7 +89,7 @@ function create ()
     lives = 1;
     //  Player physics properties. Give the little guy a slight bounce.
     player.setBounce(0.2);
-    player.setCollideWorldBounds(true);
+    //player.setCollideWorldBounds(true);
 
     //  Our player animations, turning, walking left and walking right.
     this.anims.create({
@@ -134,17 +145,34 @@ function create ()
     //  Checks to see if the player overlaps with any of the stars, if he does call the collectStar function
     this.physics.add.overlap(player, stars, collectStar, null, this);
 
-    
+    //hit poison pot
     this.physics.add.collider(player, bombs, hitBomb, null, this);
+    this.physics.world.wrap(player);
 }
 
 function update ()
 {
+
     if (gameOver)
     {
         endText = this.add.text(32, 32, 'GAME OVER', { fontSize: '96px', fill: '#fff' });
         return;
     }
+    if(player.x < 0) 
+    {
+        player.x = 800
+    }
+
+    if(player.x > 800) 
+    {
+        player.x = 0
+    }
+
+    if(player.y > 700) 
+    {
+        player.y = 0
+    }
+
     if(score>=200){
         if (cursors.left.isDown)
         {
@@ -246,7 +274,6 @@ function update ()
             player.setVelocityY(-330);
         }
     }
-    
 }
 
 function collectStar (player, star)
@@ -270,6 +297,7 @@ function collectStar (player, star)
 
     if (stars.countActive(true) === 0)
     {
+        levelUp.play();
         //  A new batch of stars to collect
         stars.children.iterate(function (child) {
 
@@ -278,13 +306,11 @@ function collectStar (player, star)
         });
 
         var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
-
         var bomb = bombs.create(x, 16, 'bomb');
         bomb.setBounce(1);
         bomb.setCollideWorldBounds(true);
         bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
         bomb.allowGravity = false;
-
     }
     if(score >= 50 && lives==1){
         lives++;
@@ -297,41 +323,33 @@ function collectStar (player, star)
         bomb.allowGravity = false;
     }
     if(score == 200 && lives>=1){
-        lives++;
         livesText.setText('Lives: ' + lives);
         var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
-        /*var bomb = bombs.create(x, 10, 'bomb');
-        bomb.setTint(0xff0000);
+        var bomb = bombs.create(x, 16, 'bomb');
         bomb.setBounce(1);
         bomb.setCollideWorldBounds(true);
         bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
-        bomb.allowGravity = true;*/
+        bomb.allowGravity = false;
     }
     if(score == 400 && lives>=1){
         lives++;
         livesText.setText('Lives: ' + lives);
         var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
-        /*var bomb = bombs.create(x, 10, 'bomb');
-        bomb.setTint(0xff0000);
-        bomb.setBounce(1);
-        bomb.setCollideWorldBounds(true);
-        bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
-        bomb.allowGravity = true;*/
     }
     if(score == 600 && lives>=1){
         lives++;
         livesText.setText('Lives: ' + lives);
-        var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
-        /*var bomb = bombs.create(x, 10, 'bomb');
-        bomb.setTint(0xff0000);
-        bomb.setBounce(1);
-        bomb.setCollideWorldBounds(true);
-        bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
-        bomb.allowGravity = true;*/
     }
     if(score == 800 && lives>=1){
         lives++;
         livesText.setText('Lives: ' + lives);
+        var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
+        var bomb = bombs.create(x, 16, 'bomb');
+        bomb.setBounce(1);
+        bomb.setCollideWorldBounds(true);
+        bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
+        bomb.allowGravity = false;
+        bomb.setTint(0xff0000);
     }
     if(score == 1000 && lives>=1){
         lives++;
@@ -340,16 +358,30 @@ function collectStar (player, star)
     if(score == 1200 && lives>=1){
         lives++;
         livesText.setText('Lives: ' + lives);
+        var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
+        var bomb = bombs.create(x, 16, 'bomb');
+        bomb.setBounce(1);
+        bomb.setCollideWorldBounds(true);
+        bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
+        bomb.allowGravity = false;
+        bomb.setTint(0xff0000);
     }
     if(score == 1400 && lives>=1){
         lives++;
         livesText.setText('Lives: ' + lives);
+        var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
+        var bomb = bombs.create(x, 16, 'bomb');
+        bomb.setBounce(1);
+        bomb.setCollideWorldBounds(true);
+        bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
+        bomb.allowGravity = false;
     }
 
 }
 
 function hitBomb (player, bomb)
 {
+    oofSound.play();
     bomb.destroy();
     player.setTint(0xff0000);
     player.anims.play('turn');
@@ -359,5 +391,6 @@ function hitBomb (player, bomb)
         this.physics.pause();
         gameOver = true;
     }
+    //player.clearTint();
     
 }
