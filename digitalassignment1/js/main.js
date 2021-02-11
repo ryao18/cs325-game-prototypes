@@ -15,6 +15,7 @@ var config = {
     type: Phaser.AUTO,
     width: 800,
     height: 600,
+    parent: 'game',
     physics: {
         default: 'arcade',
         arcade: {
@@ -41,7 +42,7 @@ var endText;
 var livesText;
 var music;
 var oofSound;
-var game = new Phaser.Game(config);
+const game = new Phaser.Game(config);
 var levelUp;
 function preload ()
 {
