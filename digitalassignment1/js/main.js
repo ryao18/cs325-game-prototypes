@@ -11,7 +11,7 @@ import "./phaser.js";
 
 // The simplest class example: https://phaser.io/examples/v3/view/scenes/scene-from-es6-class
 
-var config = {
+let config = {
     type: Phaser.AUTO,
     width: 800,
     height: 600,
@@ -29,21 +29,21 @@ var config = {
         update: update
     }
 };
-var lives;
-var player;
-var stars;
-var bombs;
-var platforms;
-var cursors;
-var score = 0;
-var gameOver = false;
-var scoreText;
-var endText; 
-var livesText;
-var music;
-var oofSound;
+let lives;
+let player;
+let stars;
+let bombs;
+let platforms;
+let cursors;
+let score = 0;
+let gameOver = false;
+let scoreText;
+let endText; 
+let livesText;
+let music;
+let oofSound;
 const game = new Phaser.Game(config);
-var levelUp;
+let levelUp;
 function preload ()
 {
     this.load.image('ground', 'assets/platform.png');
@@ -283,8 +283,8 @@ function collectStar (player, star)
     player.clearTint();
 
     if(score==0){
-        var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
-        var bomb = bombs.create(x, 16, 'bomb');
+        let x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
+        let bomb = bombs.create(x, 16, 'bomb');
         bomb.setBounce(1);
         bomb.setCollideWorldBounds(true);
         bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
@@ -306,8 +306,8 @@ function collectStar (player, star)
 
         });
 
-        var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
-        var bomb = bombs.create(x, 16, 'bomb');
+        let x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
+        let bomb = bombs.create(x, 16, 'bomb');
         bomb.setBounce(1);
         bomb.setCollideWorldBounds(true);
         bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
@@ -316,8 +316,8 @@ function collectStar (player, star)
     if(score >= 50 && lives==1){
         lives++;
         livesText.setText('Lives: ' + lives);
-        var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
-        var bomb = bombs.create(x, 10, 'bomb');
+        let x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
+        let bomb = bombs.create(x, 10, 'bomb');
         bomb.setBounce(1);
         bomb.setCollideWorldBounds(true);
         bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
@@ -325,8 +325,8 @@ function collectStar (player, star)
     }
     if(score == 200 && lives>=1){
         livesText.setText('Lives: ' + lives);
-        var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
-        var bomb = bombs.create(x, 16, 'bomb');
+        let x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
+        let bomb = bombs.create(x, 16, 'bomb');
         bomb.setBounce(1);
         bomb.setCollideWorldBounds(true);
         bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
@@ -335,7 +335,7 @@ function collectStar (player, star)
     if(score == 400 && lives>=1){
         lives++;
         livesText.setText('Lives: ' + lives);
-        var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
+        let x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
     }
     if(score == 600 && lives>=1){
         lives++;
@@ -344,8 +344,8 @@ function collectStar (player, star)
     if(score == 800 && lives>=1){
         lives++;
         livesText.setText('Lives: ' + lives);
-        var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
-        var bomb = bombs.create(x, 16, 'bomb');
+        let x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
+        let bomb = bombs.create(x, 16, 'bomb');
         bomb.setBounce(1);
         bomb.setCollideWorldBounds(true);
         bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
@@ -359,8 +359,8 @@ function collectStar (player, star)
     if(score == 1200 && lives>=1){
         lives++;
         livesText.setText('Lives: ' + lives);
-        var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
-        var bomb = bombs.create(x, 16, 'bomb');
+        let x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
+        let bomb = bombs.create(x, 16, 'bomb');
         bomb.setBounce(1);
         bomb.setCollideWorldBounds(true);
         bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
@@ -370,8 +370,8 @@ function collectStar (player, star)
     if(score == 1400 && lives>=1){
         lives++;
         livesText.setText('Lives: ' + lives);
-        var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
-        var bomb = bombs.create(x, 16, 'bomb');
+        let x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
+        let bomb = bombs.create(x, 16, 'bomb');
         bomb.setBounce(1);
         bomb.setCollideWorldBounds(true);
         bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
