@@ -36,7 +36,7 @@ let bombs;
 let scoreText;
 let score = 0;
 let hpText;
-let hp = 100;
+let hp = 10;
 let difficulty = 0;
 let spawnRate = 269;
 let counter=0;
@@ -48,6 +48,7 @@ let hpPots;
 let squishSound;
 let music;
 let finalScore;
+let finalscoreVal;
 /*
 let crosshair
 let mouse;
@@ -154,9 +155,10 @@ function update ()
     scoreText.setText('Score: ' + score);
     //game is over, player has option to restart
     if(gameOver){
+        
         this.add.displayList.removeAll();
         endGameText = this.add.text(32,128, 'GAME OVER, Press R to retry', { fontSize: '46px', fill: '#fff' });
-        finalScore = this.add.text(32,256, 'FINAL SCORE:'+ score, { fontSize: '46px', fill: '#fff' });
+        finalScore = this.add.text(32,256, 'FINAL SCORE:'+ finalscoreVal, { fontSize: '46px', fill: '#fff' });
         if(keyR.isDown) {
             this.scene.restart();
             music.pause();
@@ -165,6 +167,7 @@ function update ()
             score=0;
             gameOver = false;
             endGameText.destroy();
+            finalScore.destroy();
         }
     }
     let x = (player.x < 400) ? Phaser.Math.Between(100, 800) : Phaser.Math.Between(0, 500);
@@ -172,46 +175,46 @@ function update ()
     //spawnrate increases based on player score
     if(score===50 && difficulty===0){
         spawnHp();
-        spawnRate = 88
+        spawnRate = 100
         difficulty=1;
     }
     else if(score===250&& difficulty===1){
         spawnHp();
-        spawnRate = 70
+        spawnRate = 88
         difficulty=2;
     }
     else if(score===500&& difficulty===2){
         spawnHp();
-        spawnRate = 55
+        spawnRate = 70
         difficulty=3;
     }
     else if(score===1000&& difficulty===3){
         spawnHp();
-        spawnRate = 45
+        spawnRate = 55
         difficulty=4;
     }
     else if(score===1500&& difficulty===4){
         spawnHp();
-        spawnRate = 39
+        spawnRate = 45
         difficulty=5;
     }
     else if(score===2000&& difficulty===5){
         spawnHp();
-        spawnRate = 32;
+        spawnRate = 35;
         difficulty=6;
     }
     else if(score===2500&& difficulty===6){
         spawnHp();
-        spawnRate = 25;
+        spawnRate = 28;
         difficulty=7;
     }
     else if(score>2500&& difficulty===7){
         spawnHp();
-        spawnRate = 20;
+        spawnRate = 25;
         difficulty=8;
     }
     else if(difficulty==8){
-        spawnRate=10;
+        //spawnRate=20;
         let x = Phaser.Math.Between(0, 100000000);
         if(x<50000){
             spawnHp();
@@ -270,6 +273,7 @@ function hitBomb (player, bomb)
     hp-=5;
     hpText.setText('HP: ' + hp);
     if(hp===0){
+        finalscoreVal = score;
         this.physics.pause();
         gameOver = true;
         spawnRate=100000000000000000;
