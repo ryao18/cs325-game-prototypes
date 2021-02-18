@@ -137,10 +137,12 @@ function create(){
     //bunny hit player or vice versa
     this.physics.add.collider(player, bombs, hitBomb, null, this);
 
+    let startmsg = this.add.text(32,128, 'Arrow keys to move, click bunnies to squish', { fontSize: '28px', fill: '#fff' });
     this.input.on('gameobjectdown', function (pointer, gameObject) {
             squishSound.play();
             gameObject.destroy();
             score+=25;
+            startmsg.destroy();
         });
     
     //hp potions
