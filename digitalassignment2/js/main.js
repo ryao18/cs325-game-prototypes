@@ -50,7 +50,7 @@ let music;
 let finalScore;
 let finalscoreVal;
 let timer=0;
-let interval=500;
+let interval=690;
 
 /*
 let crosshair
