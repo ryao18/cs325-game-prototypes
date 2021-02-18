@@ -172,46 +172,46 @@ function update ()
     //spawnrate increases based on player score
     if(score===50 && difficulty===0){
         spawnHp();
-        spawnRate = 100
+        spawnRate = 88
         difficulty=1;
     }
     else if(score===250&& difficulty===1){
         spawnHp();
-        spawnRate = 88
+        spawnRate = 70
         difficulty=2;
     }
     else if(score===500&& difficulty===2){
         spawnHp();
-        spawnRate = 70
+        spawnRate = 55
         difficulty=3;
     }
     else if(score===1000&& difficulty===3){
         spawnHp();
-        spawnRate = 55
+        spawnRate = 45
         difficulty=4;
     }
     else if(score===1500&& difficulty===4){
         spawnHp();
-        spawnRate = 45
+        spawnRate = 39
         difficulty=5;
     }
     else if(score===2000&& difficulty===5){
         spawnHp();
-        spawnRate = 40;
+        spawnRate = 32;
         difficulty=6;
     }
     else if(score===2500&& difficulty===6){
         spawnHp();
-        spawnRate = 35;
+        spawnRate = 25;
         difficulty=7;
     }
     else if(score>2500&& difficulty===7){
         spawnHp();
-        spawnRate = 25;
+        spawnRate = 20;
         difficulty=8;
     }
     else if(difficulty==8){
-        spawnRate=20;
+        spawnRate=10;
         let x = Phaser.Math.Between(0, 100000000);
         if(x<50000){
             spawnHp();
