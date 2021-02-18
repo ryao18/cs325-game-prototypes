@@ -49,6 +49,9 @@ let squishSound;
 let music;
 let finalScore;
 let finalscoreVal;
+let timer=0;
+let interval=500;
+
 /*
 let crosshair
 let mouse;
@@ -87,9 +90,9 @@ function create(){
     player = this.physics.add.sprite(100,450, 'sokoban',52)
     player.setCollideWorldBounds(true);
     //The score text
-    scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '40px', fill: '#fff' });
+    scoreText = this.add.text(16, 16, 'score: '+score, { fontSize: '40px', fill: '#fff' });
     //The lives text
-    hpText = this.add.text(16, 64, 'HP: 100', { fontSize: '40px', fill: '#fff' });
+    hpText = this.add.text(16, 64, 'HP: '+hp, { fontSize: '40px', fill: '#fff' });
     //  Input Events
     cursors = this.input.keyboard.createCursorKeys();
 
@@ -157,7 +160,6 @@ function update ()
     scoreText.setText('Score: ' + score);
     //game is over, player has option to restart
     if(gameOver){
-        
         this.add.displayList.removeAll();
         endGameText = this.add.text(32,128, 'GAME OVER, Press R to retry', { fontSize: '46px', fill: '#fff' });
         finalScore = this.add.text(32,256, 'FINAL SCORE:'+ finalscoreVal, { fontSize: '46px', fill: '#fff' });
@@ -176,12 +178,12 @@ function update ()
  
     //spawnrate increases based on player score
     if(score===50 && difficulty===0){
-        spawnHp();
+        //spawnHp();
         spawnRate = 100
         difficulty=1;
     }
     else if(score===250&& difficulty===1){
-        spawnHp();
+        //spawnHp();
         spawnRate = 88
         difficulty=2;
     }
@@ -191,7 +193,7 @@ function update ()
         difficulty=3;
     }
     else if(score===1000&& difficulty===3){
-        spawnHp();
+        //spawnHp();
         spawnRate = 55
         difficulty=4;
     }
@@ -201,7 +203,7 @@ function update ()
         difficulty=5;
     }
     else if(score===2000&& difficulty===5){
-        spawnHp();
+        //spawnHp();
         spawnRate = 35;
         difficulty=6;
     }
@@ -215,10 +217,16 @@ function update ()
         spawnRate = 25;
         difficulty=8;
     }
-    else if(difficulty==8){
-        //spawnRate=20;
+    else if(score>3000 &&difficulty==8){
+        spawnRate=23;
+        /*
         let x = Phaser.Math.Between(0, 100000000);
-        if(x<50000){
+        if(x<500000){
+            spawnHp();
+        }*/
+        timer++;
+        if(timer > interval) {
+            timer = 0;
             spawnHp();
         }
     }
@@ -283,7 +291,7 @@ function hitBomb (player, bomb)
 }
 
 function spawnHp(){
-    if(difficulty===3 || difficulty===4 || difficulty===5|| difficulty===6|| difficulty===7 || difficulty===8){
+    if(difficulty===3 || difficulty===4 || difficulty===5|| difficulty===6|| difficulty===7 || difficulty>=8){
         let x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
         let y = Phaser.Math.Between(0, 600);
         let hpPot = hpPots.create(x, y, 'hpPot');
