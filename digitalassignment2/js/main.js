@@ -36,7 +36,7 @@ let bombs;
 let scoreText;
 let score = 0;
 let hpText;
-let hp = 10;
+let hp = 100;
 let difficulty = 0;
 let spawnRate = 269;
 let counter=0;
