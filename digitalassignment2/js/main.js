@@ -135,11 +135,13 @@ function create(){
     bombs = this.physics.add.group();
     //bunny hit player or vice versa
     this.physics.add.collider(player, bombs, hitBomb, null, this);
-    this.input.on('gameobjectdown', function (pointer, gameObject) {
-        squishSound.play();
-        gameObject.destroy();
-        score+=25;
-    });
+    if(!gameOver){
+        this.input.on('gameobjectdown', function (pointer, gameObject) {
+            squishSound.play();
+            gameObject.destroy();
+            score+=25;
+        });
+    }
 
     //hp potions
     hpPots = this.physics.add.group();
