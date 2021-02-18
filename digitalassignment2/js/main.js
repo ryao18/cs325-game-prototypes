@@ -213,6 +213,7 @@ function update ()
     }
     else if(difficulty==8){
         let x = Phaser.Math.Between(0, 100000000);
+        spawnRate = 20;
         if(x<50000){
             spawnHp();
         }
