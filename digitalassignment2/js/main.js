@@ -38,7 +38,7 @@ let score = 0;
 let hpText;
 let hp = 100;
 let difficulty = 0;
-let spawnRate = 365;
+let spawnRate = 269;
 let counter=0;
 let gameOver = false;
 let keyR;
@@ -135,14 +135,13 @@ function create(){
     bombs = this.physics.add.group();
     //bunny hit player or vice versa
     this.physics.add.collider(player, bombs, hitBomb, null, this);
-    if(!gameOver){
-        this.input.on('gameobjectdown', function (pointer, gameObject) {
+
+    this.input.on('gameobjectdown', function (pointer, gameObject) {
             squishSound.play();
             gameObject.destroy();
             score+=25;
         });
-    }
-
+    
     //hp potions
     hpPots = this.physics.add.group();
     this.physics.add.collider(player, hpPots, getHp, null, this);
@@ -173,27 +172,27 @@ function update ()
     //spawnrate increases based on player score
     if(score===50 && difficulty===0){
         spawnHp();
-        spawnRate = 125
+        spawnRate = 100
         difficulty=1;
     }
     else if(score===250&& difficulty===1){
         spawnHp();
-        spawnRate = 90
+        spawnRate = 88
         difficulty=2;
     }
     else if(score===500&& difficulty===2){
         spawnHp();
-        spawnRate = 80
+        spawnRate = 70
         difficulty=3;
     }
     else if(score===1000&& difficulty===3){
         spawnHp();
-        spawnRate = 60
+        spawnRate = 55
         difficulty=4;
     }
     else if(score===1500&& difficulty===4){
         spawnHp();
-        spawnRate = 50
+        spawnRate = 45
         difficulty=5;
     }
     else if(score===2000&& difficulty===5){
@@ -212,6 +211,7 @@ function update ()
         difficulty=8;
     }
     else if(difficulty==8){
+        spawnRate=20;
         let x = Phaser.Math.Between(0, 100000000);
         if(x<50000){
             spawnHp();
