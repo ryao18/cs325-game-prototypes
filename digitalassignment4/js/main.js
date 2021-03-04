@@ -178,7 +178,7 @@ class playGame extends Phaser.Scene {
 
     hitBomb (hero,bomb){
         oofSound.play();
-        bomb.destroy();
+        //bomb.destroy();
         this.hero.setVelocity(Phaser.Math.Between(-200, 200), 300);
     }
 
