@@ -25,7 +25,7 @@ let oofSound;
 let bombs;
 let cursors;
 //higher spawnrate is slower
-let spawnRate = 420;
+let spawnRate = 369;
 let counter=0;
 let squishSound;
 //let keyR;
@@ -178,7 +178,7 @@ class playGame extends Phaser.Scene {
 
     hitBomb (hero,bomb){
         oofSound.play();
-        //bomb.destroy();
+        bomb.destroy();
         this.hero.setVelocity(Phaser.Math.Between(-200, 200), 300);
     }
 
