@@ -348,7 +348,7 @@ class playGame extends Phaser.Scene {
         //spawn projectiles at a constant rate
         if(counter>=spawnRate){
             let x = (this.hero.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
-            let y = 200
+            let y = 600
             let bomb = bombs.create(x, y, 'bomb');
             bomb.setBounce(1);
             bomb.setCollideWorldBounds(true);
@@ -367,9 +367,10 @@ class playGame extends Phaser.Scene {
         this.platformGroup.getChildren().forEach(function(platform) {
             if (platform.y + game.config.height < this.hero.y) {
                 //endGameText = this.add.text(this.hero.x,this.hero.y, 'GAME OVER, score was:'+ score, { fontSize: '46px', fill: '#fff' });
+                score=-1;
                 music.pause();
-                this.scene.restart();
-                //this.scene.start("PlayGame")
+                //this.scene.restart();
+                this.scene.start("PlayGame")
             }
             let distance = Math.max(0.2, 1 - ((Math.abs(game.config.width / 2 - platform.x) / (game.config.width / 2)))) * Math.PI / 2;
             platform.body.setVelocityX(platform.assignedVelocityX * distance);
