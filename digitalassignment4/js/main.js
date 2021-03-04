@@ -58,8 +58,8 @@ window.onload = function() {
                 }
             }
         },
-        scene: [startScene,playGame]
-        //scene:playGame
+        //scene: [startScene,playGame]
+        scene:playGame
     }
     game = new Phaser.Game(gameConfig);
     window.focus();
@@ -348,7 +348,7 @@ class playGame extends Phaser.Scene {
         //spawn projectiles at a constant rate
         if(counter>=spawnRate){
             let x = (this.hero.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
-            let y = Phaser.Math.Between(0, this.hero.body.position.y+100);
+            let y = 200
             let bomb = bombs.create(x, y, 'bomb');
             bomb.setBounce(1);
             bomb.setCollideWorldBounds(true);
@@ -367,6 +367,7 @@ class playGame extends Phaser.Scene {
         this.platformGroup.getChildren().forEach(function(platform) {
             if (platform.y + game.config.height < this.hero.y) {
                 //endGameText = this.add.text(this.hero.x,this.hero.y, 'GAME OVER, score was:'+ score, { fontSize: '46px', fill: '#fff' });
+                music.pause();
                 this.scene.restart();
                 //this.scene.start("PlayGame")
             }
