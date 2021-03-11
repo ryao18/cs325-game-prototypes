@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Hello! Amaze!</title>
+<style>
+body
+{
+    color: #777;
+    font-family: "Avenir", Verdana, sans-serif;
+}
+#readme
+{
+    margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+<div id="game"></div>
+<div id="readme">
+<h2>kill bunnie v2</h2>
+
+<ul>
+<li><strong>Originality:</strong>
+This is a mouse spam game combined with a dodge the homing bullet game. It also incorporates a smokescreen to make visibility low.
+</li>
+
+<li><strong>Technical Merit:</strong>
+This uses custom animations and a interesting difficulty scaling system, based on score. 
+After iterative improvements it also has:
+start screen,
+object attraction (bunnies -> player),
+and an interesting grass mechanic.
+</li>
+
+<li><strong>Prototype Postmortem:</strong>
+Learned how to use a tilesheet png to create animation. Also learned a bit of how to scale difficulty.
+The most difficult part was getting the difficulty scaling right. learned how to make objects attracted to other objects.
+also learned how to apply different scenes to make a start screen etc.
+</li>
+
+<li><strong>Prototype Assets:</strong>
+All borrowed assets listed:
+<ul>
+<li>man sprite (sokoban assets): <a href="https://kenney.nl/assets/sokoban">link</a></li>
+<li>grass background: <a href="https://www.slynyrd.com/blog/2019/8/27/pixelblog-20-top-down-tiles">link</a></li>
+<li>oof sound: <a href="https://www.youtube.com/watch?v=3w-2gUSus34">link</a></li>
+<li>squish sound: <a href="https://www.sounds-resource.com/wii_u/splatoon/">link</a></li>
+<li>hpPot png: <a href="https://www.pngaaa.com/detail/1255098">link</a></li>
+<li>background music: credit goes to my friend Ivan</li>
+<li>grass png: <a href="https://www.pikpng.com/pngl/m/30-303190_tall-grass-png-sweet-grass-clipart.png">link</a></li>
+</ul>
+</li>
+
+<li><strong>Prototype Closest Other Game:</strong>
+    <ul>
+    <li>Original da2 by me 
+        After iterative improvements it also has:
+        start screen, object attraction based on movement (bunnies -> player),
+        and an interesting grass mechanic. <a href="https://ryao18.github.io/cs325-game-prototypes/digitalassignment2/s">link here</a></li>
+    <li>Walking code borrowed from here: <a href="https://blog.ourcade.co/posts/2020/memory-match-modern-javascript-phaser3-part1/">link</a></li>
+    <li>destroy object code from here: <a href="http://labs.phaser.io/edit.html?src=src\input\game%20object\destroy%20sprite%20on%20down%20event.js">link</a></li>
+    <li>making bunnies attracted to player help from here: : <a href="http://labs.phaser.io/edit.html?src=src/physics\arcade\move%20to%20pointer.js">link</a></li></ul>
+</li>
+
+<li><strong>High Concept:</strong>
+    Help the park ranger keep the explosive bunny population down.
+</li>
+
+<li><strong>Theme:</strong>
+National park service ranger 
+</li>
+
+<li><strong>Mandated Variety:</strong>
+Input: mouse and keyboard (arrow keys)
+Randomness: very random (in terms of bunny and hp pot spawning)
+Genre: survival maybe
+Playstyle: competitor
+</li>
+
+<li><strong>Prototype Goal:</strong>
+What game mechanic is this prototype evaluating?
+maybe catchup because bunnies continously spawn. 
+</li>
+
+<li><strong>Player Experience Goals:</strong>
+What experience do you want players to have when playing your game?
+Have fun and be stressed..
+</li>
+
+<li><strong>Gameplay:</strong>
+The player can move via arrow keys. To squish the bunnies, simply click on them. Hp pots spawn randomly based on score. 
+The bunnies will spawn faster and faster as your score increases.
+</li>
+
+<li><strong>Strategies:</strong>
+Move carefully, but there is a lot of rng so good luck. Grass clears where the player steps (but be careful you move slower thru it).
+Bunnies are only attracted when you move, take that into account (though they are faster when not attracted).
+</li>
+
+<li><strong>Story/Setting/Premise:</strong>
+In 2069, covid-69 has mutated and infected a breed of bunnies. These bunnies somehow have built up enough toxins to become dangerous to the touch. Your job as a national park ranger is 
+to exterminate these vermin. "Why the national park service?" I don't know somehow he's the only one available for the job.
+</li>
+
+<li><strong>Target Audience:</strong>
+This game is for everyone, mainly younger kids who want a challenge.
+</li>
+
+<li><strong>Play Time:</strong>
+Depends on how long you can last. Maybe 3 min?
+</li>
+
+</ul>
+</div>
+
+<!-- main.js must come at the end since it expects the HTML to have been created. -->
+<script src="js/main.js" type="module"></script>
+</body>
+</html>
