@@ -231,41 +231,41 @@ class playGame extends Phaser.Scene {
         }
         else if(score===250&& difficulty===1){
             //this.spawnHp();
-            spawnRate = 88
+            spawnRate = 70
             difficulty=2;
         }
         else if(score===500&& difficulty===2){
             this.spawnHp();
-            spawnRate = 70
+            spawnRate = 69
             difficulty=3;
         }
         else if(score===1000&& difficulty===3){
             //this.spawnHp();
-            spawnRate = 55
+            spawnRate = 50
             difficulty=4;
         }
         else if(score===1500&& difficulty===4){
             this.spawnHp();
-            spawnRate = 45
+            spawnRate = 40
             difficulty=5;
         }
         else if(score===2000&& difficulty===5){
             //this.spawnHp();
-            spawnRate = 35;
+            spawnRate = 30;
             difficulty=6;
         }
         else if(score===2500&& difficulty===6){
             this.spawnHp();
-            spawnRate = 28;
+            spawnRate = 25;
             difficulty=7;
         }
         else if(score>2500&& difficulty===7){
             this.spawnHp();
-            spawnRate = 25;
+            spawnRate = 22;
             difficulty=8;
         }
         else if(score>3000 &&difficulty==8){
-            spawnRate=23;
+            spawnRate=19;
             timer++;
             if(timer > interval) {
                 timer = 0;
@@ -273,7 +273,7 @@ class playGame extends Phaser.Scene {
             }
         }
         else if(score>4000 &&difficulty==8){
-            spawnRate=20;
+            spawnRate=15;
             timer++;
             if(timer > interval) {
                 timer = 0;
