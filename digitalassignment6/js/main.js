@@ -329,7 +329,6 @@ class playGame extends Phaser.Scene {
         }
         //comp2 - just add to score
         if(comp2Sum===7||comp2Sum===9||comp2Sum===11||comp2Sum===13||comp2Sum===15){
-            comp2Score+=comp2Sum;
             if(comp2Sum===7){
                 comp2MSG.setText('Comp2 status: afk');
             }
@@ -345,6 +344,7 @@ class playGame extends Phaser.Scene {
             if(comp2Sum===15){
                 comp2MSG.setText('Comp2 status: ez game');
             }
+            comp2Score+=comp2Sum;
         }
         //comp2 can heal other
         if(comp2Sum<6 || comp2Sum>15){
@@ -364,7 +364,7 @@ class playGame extends Phaser.Scene {
     }
 
     attack1(){
-        comp1Score-=playerSum;
+        comp1Score-=(playerSum/2);
         if(comp1Score<0){
             comp1Score=0;
         }
@@ -374,7 +374,7 @@ class playGame extends Phaser.Scene {
         attackButton2.setVisible(false);
     }
     attack2(){
-        comp2Score-=playerSum;
+        comp2Score-=(playerSum/2);
         if(comp2Score<0){
             comp2Score=0;
         }
