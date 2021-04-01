@@ -331,19 +331,19 @@ class playGame extends Phaser.Scene {
         if(comp2Sum===7||comp2Sum===9||comp2Sum===11||comp2Sum===13||comp2Sum===15){
             comp2Score+=comp2Sum;
             if(comp2Sum===7){
-                comp1MSG.setText('Comp2 status: afk');
+                comp2MSG.setText('Comp2 status: afk');
             }
             if(comp2Sum===9){
-                comp1MSG.setText('Comp2 status: lol noobs');
+                comp2MSG.setText('Comp2 status: lol noobs');
             }
             if(comp2Sum===11){
-                comp1MSG.setText('Comp2 status: ez');
+                comp2MSG.setText('Comp2 status: ez');
             }
             if(comp2Sum===13){
-                comp1MSG.setText('Comp2 status: zzzzzz');
+                comp2MSG.setText('Comp2 status: zzzzzz');
             }
             if(comp2Sum===15){
-                comp1MSG.setText('Comp2 status: ez game');
+                comp2MSG.setText('Comp2 status: ez game');
             }
         }
         //comp2 can heal other
