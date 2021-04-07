@@ -83,9 +83,11 @@ class playGame extends Phaser.Scene {
     create(){
 
         //sounds
-        music = this.sound.add('bgTrack',{volume:.05});
+        //music = this.sound.add('bgTrack',{volume:.05});
+        music = this.sound.add('bgTrack',{volume:0});
         music.loop = true;
         music.play();
+
 
         rollButton = this.physics.add.sprite(375,500, 'rollButton',52);
         rollButton.setInteractive();
@@ -188,8 +190,8 @@ class playGame extends Phaser.Scene {
                 roundCount=0;
                 comp1Sum=0,comp2Sum=0,comp1Score=0,comp2Score=0;
                 playerScore=0;
-                comp1Dice1,comp1Dice2,comp1Dice3;
-                comp2Dice1,comp2Dice2,comp2Dice3;
+                comp1Dice1=0,comp1Dice2=0,comp1Dice3=0;
+                comp2Dice1=0,comp2Dice2=0,comp2Dice3=0;
                 playerDice1=0,playerDice2=0,playerDice3=0;
                 playerSum=0;
                 this.scene.restart();
@@ -262,7 +264,7 @@ class playGame extends Phaser.Scene {
             if(rand===1){
                 comp1MSG.setText('Comp1 attacked Player for '+(comp1Sum/2)+' Points');
                 playerScore-=(comp1Sum/2);
-                if(playerScore<0){
+                if(playerScore<=0){
                     playerScore=0;
                 }
             }
@@ -270,7 +272,7 @@ class playGame extends Phaser.Scene {
             else{
                 comp1MSG.setText('Comp1 attacked Comp2 for '+(comp1Sum/2)+' Points');
                 comp2Score-=(comp1Sum/2);
-                if(comp2Score<0){
+                if(comp2Score<=0){
                     comp2Score=0;
                 }
             }
@@ -314,7 +316,7 @@ class playGame extends Phaser.Scene {
             if(rand===1){
                 comp2MSG.setText('Comp2 attacked Player for '+(comp2Sum/2)+' Points');
                 playerScore-=(comp2Sum/2);
-                if(playerScore<0){
+                if(playerScore<=0){
                     playerScore=0;
                 }
             }
@@ -322,7 +324,7 @@ class playGame extends Phaser.Scene {
             else{
                 comp2MSG.setText('Comp2 attacked Comp1 for '+(comp2Sum/2)+' Points');
                 comp1Score-=(comp2Sum/2);
-                if(comp1Score<0){
+                if(comp1Score<=0){
                     comp1Score=0;
                 }
             }
@@ -365,7 +367,7 @@ class playGame extends Phaser.Scene {
 
     attack1(){
         comp1Score-=(playerSum/2);
-        if(comp1Score<0){
+        if(comp1Score<=0){
             comp1Score=0;
         }
         attackButton1.setInteractive(false);
@@ -375,7 +377,7 @@ class playGame extends Phaser.Scene {
     }
     attack2(){
         comp2Score-=(playerSum/2);
-        if(comp2Score<0){
+        if(comp2Score<=0){
             comp2Score=0;
         }
         attackButton1.setInteractive(false);

@@ -1,0 +1,4 @@
+allow bots to attack/heal and do nothing - done
+make bots target highest hp player - done
+add option to freeze a bot for 1 round (they cannot do anything including rolling) - nah
+add animations? - done
