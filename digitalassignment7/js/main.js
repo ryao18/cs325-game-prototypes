@@ -50,7 +50,7 @@ let buttoninstruct,buttoninstruct2;
 //misc
 let keyR,music,diceSound,swordSound,healSound;
 let roundCount=0;
-let m1,m2,m3,m4,m5,m6;
+let m1,m2,m3,m4,m5,m6,m7,m8;
 let lancelot;
 let bloodPlayer,bloodComp1,bloodComp2;
 let healingPlayer,healingComp1,healingComp2;
@@ -203,18 +203,24 @@ class playGame extends Phaser.Scene {
                 m1=this.add.text(100,100, 'PLAYER WINS', { fontSize: '36px', fill: '#fff' });
                 m5=this.add.text(100,140, 'with score = '+playerScore, { fontSize: '36px', fill: '#fff' });
                 m6=this.add.text(100,180, 'Rounds played: '+roundCount, { fontSize: '36px', fill: '#fff' });
+                m7=this.add.text(100,220, 'comp1 score was '+comp1Score, { fontSize: '24px', fill: '#fff' });
+                m8=this.add.text(100,240, 'comp2 score was '+comp2Score, { fontSize: '24px', fill: '#fff' });
             }
             else if(comp1Score>=100){
                 //comp1 wins
                 m2=this.add.text(100,100, 'COMP1 WINS', { fontSize: '36px', fill: '#fff' });
                 m5=this.add.text(100,140, 'with score = '+comp1Score, { fontSize: '36px', fill: '#fff' });
                 m6=this.add.text(100,180, 'Rounds played: '+roundCount, { fontSize: '36px', fill: '#fff' });
+                m7=this.add.text(100,220, 'player score was '+playerScore, { fontSize: '24px', fill: '#fff' });
+                m8=this.add.text(100,240, 'comp2 score was '+comp2Score, { fontSize: '24px', fill: '#fff' });
             }
             else if(comp2Score>=100){
                 //comp2 wins
                 m3=this.add.text(100,100, 'COMP2 WINS', { fontSize: '36px', fill: '#fff' });
                 m5=this.add.text(100,140, 'with score = '+comp2Score, { fontSize: '36px', fill: '#fff' });
                 m6=this.add.text(100,180, 'Rounds played: '+roundCount, { fontSize: '36px', fill: '#fff' });
+                m7=this.add.text(100,220, 'comp1 score was '+comp1Score, { fontSize: '24px', fill: '#fff' });
+                m8=this.add.text(100,240, 'player score was '+playerScore, { fontSize: '24px', fill: '#fff' });
             }
             m4=this.add.text(100,300, 'Press R to play again.', { fontSize: '40px', fill: '#fff' });
             if(keyR.isDown) {  
