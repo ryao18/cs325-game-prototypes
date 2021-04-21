@@ -19,72 +19,92 @@ body
 <body>
 <div id="game"></div>
 <div id="readme">
-<h2>Like curling but not</h2>
+<h2>Kinda like curling but not</h2>
 
 <ul>
 <li><strong>Originality:</strong>
 What is original about your game?
+It is based on curling, but adds a twist of different obstacles and a changing target.
+
 </li>
 
 <li><strong>Technical Merit:</strong>
 What is interesting about your game technology?
+The ball incorporates drag, which makes the game much more difficult and fun.
+To allow the player to enter a power level, I've incorporated an html textbox.
+It uses tweens to create a startup animation and animation on no user input. 
+To calculate how close the ball is to the bulls-eye target, I've used Phaser's 
+distance betweenPoints method. It calculates the distance between an invisible point on the bulls-eey
+and the ball. The resulting score is calculated based on the distance.
 </li>
 
 <li><strong>Prototype Postmortem:</strong>
 What did you learn from this prototype?
+I learned how tweens works in Phaser. Also learned how to make different shaped collision boxes (circles in this case).
 What was the easiest or hardest part of making it?
+The easiest part was creating my own sprites. 
 </li>
 
 <li><strong>Prototype Assets:</strong>
 Did you make your prototype assets from scratch? Did you borrow them? Cite your sources here.
 <ul>
-<li>textbox thing: <a href="https://github.com/photonstorm/phaser3-examples/blob/master/public/assets/text/nameform.html">Phaser logo</a></li>
+ <li>target image: <a href="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/69987/curling-house-clipart-sm.png">Link</a></li>
+<li>textbox thing: <a href="https://github.com/photonstorm/phaser3-examples/blob/master/public/assets/text/nameform.html">Link</a></li>
+<li>All other images/spirtes I Made</a></li>
 </ul>
 </li>
 
 <li><strong>Prototype Closest Other Game:</strong>
-Which other game most closely resembles your game? If you are borrowing code from a Phaser Example, you must say so here. If you borrow code from elsewhere, you must say so here.
+Didn't base off any digital game, but the concept is based on curling. 
 </li>
 
 <li><strong>High Concept:</strong>
-A one-sentence summary of your game.
+Get the ball to the bulls-eye.
 </li>
 
 <li><strong>Theme:</strong>
-State which of the Storymatic themes you used.
+n/a
 </li>
 
 <li><strong>Mandated Variety:</strong>
-State which input, randomness, genre, and play style you used in this prototype.
+input - direct via mouse and keyboard
+randomness - some randomness (target position)
+genre - competitor
+play style - overhead
 </li>
 
 <li><strong>Prototype Goal:</strong>
-What game mechanic is this prototype evaluating?
+action points - the player is allowed to set power and shoot once per game
 </li>
 
 <li><strong>Player Experience Goals:</strong>
-What experience do you want players to have when playing your game?
+The player should feel strategic when determing optimal power levels and angles to shoot the ball.
+They may also feel frustrated or annoyed if they come close but not on the target.
+
 </li>
 
 <li><strong>Gameplay:</strong>
-A paragraph describing the actions the player can perform, the system dynamics, and the core mechanic. Include a concise explanation of the prototype’s inputs and their expected effects (how to play). You can also describe game play that is not in the prototype. You may include mock-up images for parts of the game not in the prototype.
+To start, the power enters in a power level between 1 and 2000. This scales linearly.
+Next, the player will aim with the mouse pointer, and press spacebar to shoot the ball.
+After the ball stops moving, the score and distance are shown to the player.
+To play again, the player will click restart.
 </li>
 
 <li><strong>Strategies:</strong>
-What player strategies do you expect will be effective at playing this game?
+Generally, a lower power level is easily to use (ex. 400). Larger power level increases the randomness a bit.
+There may be some optimal places to shoot and bounce off of.
 </li>
 
 <li><strong>Story/Setting/Premise:</strong>
-A paragraph about the world your game is set in and who the characters are. What makes the game world and its occupants unique and interesting? Do the tokens represent something? If the game has a backstory, mention it here. If the game is abstract, then say so.
-How will the dramatic tension interact with the gameplay tension?
+n/a
 </li>
 
 <li><strong>Target Audience:</strong>
-A single sentence that describes the demographic you're trying to reach.
+ people who enjoy darts or curling will likely enjoy this kind of game.
 </li>
 
 <li><strong>Play Time:</strong>
-How long does your game take to play?
+ less than 15 seconds.
 </li>
 
 </ul>
