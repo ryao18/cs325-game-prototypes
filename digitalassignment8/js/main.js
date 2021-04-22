@@ -195,28 +195,28 @@ class playGame extends Phaser.Scene {
             let dist = Phaser.Math.Distance.BetweenPoints(ball, centerPoint);
             dist=Math.round(dist);
             console.log('distance: '+dist);
-            if(dist>70 && dist<90){
+            if(dist>=70 && dist<=90){
                 score+=5;
             }
-            else if(dist>60 && dist<70){
+            else if(dist>=60 && dist<=70){
                 score+=10;
             }
-            else if(dist>50 && dist<60){
+            else if(dist>=50 && dist<=60){
                 score+=20;
             }
-            else if(dist>40 && dist<50){
+            else if(dist>=40 && dist<=50){
                 score+=25;
             }
-            else if(dist>30 && dist<40){
+            else if(dist>=30 && dist<=40){
                 score+=40;
             }
-            else if(dist>21 && dist<30){
+            else if(dist>=21 && dist<=30){
                 score+=60;
             }
-            else if(dist>10 && dist<21){
+            else if(dist>=10 && dist<=21){
                 score+=80;
             }
-            else if(dist>0 && dist<10){
+            else if(dist>=0 && dist<=10){
                 score+=100;
             }
             gameOver=false;
