@@ -1,0 +1,13 @@
+add a power slider instead of the textbox
+
+
+make the circular obstacles also move (left-right or up-down), maybe the walls too
+
+
+allow the target to also move up-down
+
+
+add a crosshair or smth
+
+
+add more sounds?

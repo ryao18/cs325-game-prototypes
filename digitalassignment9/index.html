@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>DA9</title>
+<style>
+body
+{
+    color: #777;
+    font-family: "Avenir", Verdana, sans-serif;
+}
+#readme
+{
+    margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+<div id="game"></div>
+<div id="readme">
+<h2>Kinda like curling but not V2</h2>
+
+<ul>
+<li><strong>Originality:</strong>
+What is original about your game?
+It is based on curling, but adds a twist of different obstacles and a changing target.
+
+</li>
+
+<li><strong>Technical Merit:</strong>
+What is interesting about your game technology?
+New:
+Using tweens to add moving obstacles that have set patterns and movements
+These obstacles are able to push the curling ball.
+Old:
+The ball incorporates drag, which makes the game much more difficult and fun.
+To allow the player to enter a power level, I've incorporated an html textbox.
+It uses tweens to create a startup animation and animation on no user input. 
+To calculate how close the ball is to the bulls-eye target, I've used Phaser's 
+distance betweenPoints method. It calculates the distance between an invisible point on the bulls-eey
+and the ball. The resulting score is calculated based on the distance.
+</li>
+
+<li><strong>Prototype Postmortem:</strong>
+What did you learn from this prototype?
+I learned how tweens works in Phaser. Also learned how to make different shaped collision boxes (circles in this case).
+What was the easiest or hardest part of making it?
+The easiest part was creating my own sprites. 
+</li>
+
+<li><strong>Prototype Assets:</strong>
+Did you make your prototype assets from scratch? Did you borrow them? Cite your sources here.
+<ul>
+ <li>target image: <a href="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/69987/curling-house-clipart-sm.png">Link</a></li>
+<li>textbox thing: <a href="https://github.com/photonstorm/phaser3-examples/blob/master/public/assets/text/nameform.html">Link</a></li>
+<li>All other images/spirtes I Made</a></li>
+</ul>
+</li>
+
+<li><strong>Prototype Closest Other Game:</strong>
+Didn't base off any digital game, but the concept is based on curling. 
+the tweens movement was based on this example: https://codepen.io/samme/pen/wYLQOY
+</li>
+
+<li><strong>High Concept:</strong>
+Get the ball to the bulls-eye.
+</li>
+
+<li><strong>Theme:</strong>
+n/a
+</li>
+
+<li><strong>Mandated Variety:</strong>
+input - direct via mouse and keyboard
+randomness - some randomness (target position)
+genre - competitor
+play style - overhead
+</li>
+
+<li><strong>Prototype Goal:</strong>
+action points - the player is allowed to set power and shoot once per game
+</li>
+
+<li><strong>Player Experience Goals:</strong>
+The player should feel strategic when determing optimal power levels and angles to shoot the ball.
+They may also feel frustrated or annoyed if they come close but not on the target.
+
+</li>
+
+<li><strong>Gameplay:</strong>
+To start, the power enters in a power level between 1 and 2000. This scales linearly.
+Next, the player will aim with the mouse pointer, and press spacebar to shoot the ball.
+After the ball stops moving, the score and distance are shown to the player.
+To play again, the player will click restart.
+</li>
+
+<li><strong>Strategies:</strong>
+Generally, a lower power level is easily to use (ex. 400). Larger power level increases the randomness a bit.
+There may be some optimal places to shoot and bounce off of.
+The moving obstacles have a pattern, you may use it to your advantage.
+</li>
+
+<li><strong>Story/Setting/Premise:</strong>
+n/a
+</li>
+
+<li><strong>Target Audience:</strong>
+ people who enjoy darts or curling will likely enjoy this kind of game.
+</li>
+
+<li><strong>Play Time:</strong>
+ less than 10 seconds.
+</li>
+
+</ul>
+</div>
+
+<!-- main.js must come at the end since it expects the HTML to have been created. -->
+<script src="js/main.js" type="module"></script>
+</body>
+</html>
